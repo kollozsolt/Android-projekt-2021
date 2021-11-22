@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_3ss_logo.xml" value="0.2703125" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_bazaar_logo_coloured.xml" value="0.14635416666666667" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_bazar_big_logo.xml" value="0.2703125" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_line.xml" value="0.14635416666666667" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_person.xml" value="0.2703125" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/login_button_style.xml" value="0.14635416666666667" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/round_style.xml" value="0.2703125" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/signup_button_style.xml" value="0.2703125" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/splash_image.xml" value="0.2703125" />

@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.splashScreenTheme)
+        setContentView(R.layout.activity_main)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val drawerLayout : DrawerLayout = binding.drawerLayout
 
         supportFragment.beginTransaction()
             .add(R.id.fragment_container_view, LogInFragment()).commit()
