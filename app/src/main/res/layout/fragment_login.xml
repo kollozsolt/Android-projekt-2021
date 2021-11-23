@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.LogInFragment"
+    tools:context=".fragments.LoginFragment"
     android:background="@color/transparent">
 
     <TextView
-        android:id="@+id/log_in_text_view"
+        android:id="@+id/login_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log in"
@@ -33,7 +33,7 @@
         android:hint="Name"
         android:textColorHint="@color/B_white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/log_in_text_view">
+        app:layout_constraintTop_toBottomOf="@+id/login_text_view">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username_text_edit"
@@ -69,7 +69,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -94,7 +94,7 @@
         android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
     <TextView
         android:id="@+id/forgot_text_click"
@@ -107,7 +107,7 @@
         android:layout_marginStart="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
     <ImageView
         android:id="@+id/line_image_view"
@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/line_image_view" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signUp_button"
+        android:id="@+id/signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
