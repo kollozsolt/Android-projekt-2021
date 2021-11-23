@@ -6,6 +6,7 @@ import android.view.WindowManager
 import androidx.fragment.app.FragmentManager
 import com.example.projectapplication.fragments.LoginFragment
 import com.example.projectapplication.databinding.ActivityMainBinding
+import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
     val supportFragment: FragmentManager = supportFragmentManager

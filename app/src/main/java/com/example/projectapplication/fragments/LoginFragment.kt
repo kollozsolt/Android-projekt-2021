@@ -43,10 +43,13 @@ class LoginFragment : Fragment() {
         val passwordEditText: EditText = binding.passwordTextEdit
         val loginButton: Button = binding.loginButton
         val forgotText: TextView = binding.forgotTextClick
+        val signupButton : Button = binding.signupButton
 
         loginButton.setOnClickListener { loginOnClick(nameEditText, passwordEditText) }
 
         forgotText.setOnClickListener { forgotTextClick() }
+
+        signupButton.setOnClickListener{ signupOnClick() }
 
         loginViewModel.token.observe(viewLifecycleOwner) {
             Log.d(TAG, "navigate to list")
@@ -77,7 +80,13 @@ class LoginFragment : Fragment() {
     private fun forgotTextClick() {
         val supportFragment: FragmentManager? = activity?.supportFragmentManager
         supportFragment?.beginTransaction()
-            ?.replace(R.id.fragment_container_view, ResetPasswordFragment())?.commit()
+            ?.replace(R.id.fragment_container_view, ResetPasswordFragment())?.addToBackStack(null)?.commit()
+    }
+
+    private fun signupOnClick(){
+        val supportFragment: FragmentManager? = activity?.supportFragmentManager
+        supportFragment?.beginTransaction()
+            ?.replace(R.id.fragment_container_view, RegistrationFragment())?.addToBackStack(null)?.commit()
     }
 
 }

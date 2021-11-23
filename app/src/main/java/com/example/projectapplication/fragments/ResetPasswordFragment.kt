@@ -49,12 +49,6 @@ class ResetPasswordFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                val supportFragment: FragmentManager? = activity?.supportFragmentManager
-                supportFragment?.beginTransaction()?.replace(R.id.fragment_container_view, LoginFragment())?.commit()
-            }
-        })
         val factory = ResetPasswordViewModelFactory(this.requireContext(), Repository())
         resetPasswordViewModel = ViewModelProvider(this, factory).get(ResetPasswordViewModel::class.java)
     }

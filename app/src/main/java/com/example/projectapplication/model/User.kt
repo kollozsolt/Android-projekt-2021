@@ -34,17 +34,6 @@ data class LoginResponse (
     var refresh_time: Long
 )
 
-data class FailedLoginResponse (
-    @SerializedName("code")
-    var code: Int,
-
-    @SerializedName("message")
-    var message: String,
-
-    @SerializedName("timesptamp")
-    var timestamp: Long
-)
-
 data class ResetPasswordRequest(
     @SerializedName("username")
     var username: String,
@@ -60,7 +49,18 @@ data class ResetPasswordResponse(
     @SerializedName("message")
     var message: String,
 
-    @SerializedName("timesptamp")
+    @SerializedName("timestamp")
     var timestamp: Long
 )
 
+
+data class ErrorResponse (
+    @SerializedName("code")
+    var code: Int,
+
+    @SerializedName("message")
+    var message: String,
+
+    @SerializedName("timestamp")
+    var timestamp: Long
+)
