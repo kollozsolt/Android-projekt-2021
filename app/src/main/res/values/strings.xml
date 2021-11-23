@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Bazaar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="forgot_password_instruction"> We will send you an email with instruction on how to reset your password.</string>
+    <string name="email_me">Email me</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="forgot_q_password">Forgot password?</string>
+    <string name="click_here">Click here</string>
+    <string name="new_to_bazaar">New to Bazaar?</string>
+    <string name="sign_up">Sign up</string>
 </resources>

@@ -12,9 +12,9 @@
         android:id="@+id/login_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in"
+        android:text="@string/log_in"
         android:textColor="@color/B_white"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.17"
@@ -23,15 +23,16 @@
         app:layout_constraintVertical_bias="0.08" />
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/LoginTextInputLayoutStyle"
         android:id="@+id/username_text_input_layout"
+        style="@style/LoginTextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
         android:layout_marginTop="40dp"
-        android:hint="Name"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:hint="@string/username"
         android:textColorHint="@color/B_white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_text_view">
 
@@ -39,7 +40,7 @@
             android:id="@+id/username_text_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/B_white"/>
+            android:textColor="@color/B_white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,11 +53,12 @@
         android:layout_marginEnd="40dp"
         android:layout_marginTop="40dp"
         app:boxStrokeColor="@color/white"
-        android:hint="Password"
+        android:hint="@string/password"
         app:passwordToggleTint="@color/B_white"
         app:passwordToggleEnabled="true"
         android:textColorHint="@color/B_white"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_text_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -76,9 +78,9 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/login_button_style"
-        android:text="Log in"
+        android:text="@string/log_in"
         android:textColor="@color/B_dark"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout" />
@@ -87,9 +89,9 @@
         android:id="@+id/forgot_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgott password?"
+        android:text="@string/forgot_q_password"
         android:textColor="@color/white"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,9 +102,9 @@
         android:id="@+id/forgot_text_click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click here"
+        android:text="@string/click_here"
         android:textColor="@color/B_turquoise"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:layout_marginTop="40dp"
         android:layout_marginStart="100dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,9 +125,9 @@
         android:id="@+id/new_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New to Bazaar?"
+        android:text="@string/new_to_bazaar"
         android:textColor="@color/B_gray"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,9 +141,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/signup_button_style"
-        android:text="Sign up"
+        android:text="@string/sign_up"
         android:textColor="@color/B_white"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_text_view" />

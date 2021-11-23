@@ -10,7 +10,7 @@ import com.example.projectapplication.model.User
 import com.example.projectapplication.repository.Repository
 
 class LoginViewModel(val context: Context, val repository: Repository) : ViewModel() {
-    private val TAG = MyApplication::class.java.simpleName
+    private val TAG = javaClass.simpleName
 
     var token: MutableLiveData<String> = MutableLiveData()
     var user = MutableLiveData<User>()

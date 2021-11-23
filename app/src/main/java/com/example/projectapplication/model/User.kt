@@ -2,7 +2,7 @@ package com.example.projectapplication.model
 
 import com.google.gson.annotations.SerializedName
 
-data class User(var username: String="", var password: String="", val email: String="", var phone_number: String="")
+data class User(var username: String="", var password: String="", var email: String="", var phone_number: String="")
 
 //GSon converter
 data class LoginRequest (
@@ -33,3 +33,34 @@ data class LoginResponse (
     @SerializedName("refresh_time")
     var refresh_time: Long
 )
+
+data class FailedLoginResponse (
+    @SerializedName("code")
+    var code: Int,
+
+    @SerializedName("message")
+    var message: String,
+
+    @SerializedName("timesptamp")
+    var timestamp: Long
+)
+
+data class ResetPasswordRequest(
+    @SerializedName("username")
+    var username: String,
+
+    @SerializedName("email")
+    var email: String
+)
+
+data class ResetPasswordResponse(
+    @SerializedName("code")
+    var code: Int,
+
+    @SerializedName("message")
+    var message: String,
+
+    @SerializedName("timesptamp")
+    var timestamp: Long
+)
+
