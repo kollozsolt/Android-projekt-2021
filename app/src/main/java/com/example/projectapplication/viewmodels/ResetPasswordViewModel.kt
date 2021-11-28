@@ -24,7 +24,7 @@ class ResetPasswordViewModel(val context: Context, val repository: Repository) :
             val result = repository.resetPassword(request)
             Log.d(TAG, "MyApplication - message ${result.message}" )
         } catch (e: Exception){
-            Log.d(TAG, "LoginViewModel - exception: ${e}")
+            Log.d(TAG, "ResetPasswordViewModel - exception: ${e}")
         }
     }
 }

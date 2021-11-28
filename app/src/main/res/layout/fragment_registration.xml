@@ -104,6 +104,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone_text_edit"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/B_white" />
@@ -111,7 +112,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_button"
+        android:id="@+id/registration_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -135,7 +136,7 @@
     android:layout_marginTop="40dp"
     android:layout_marginStart="100dp"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/login_button" />
+    app:layout_constraintTop_toBottomOf="@+id/registration_button" />
 
     <TextView
         android:id="@+id/already_text_click"
@@ -147,5 +148,5 @@
         android:textColor="@color/B_turquoise"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/already_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/registration_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

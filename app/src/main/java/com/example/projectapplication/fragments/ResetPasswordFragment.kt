@@ -65,5 +65,8 @@ class ResetPasswordFragment : Fragment() {
         lifecycleScope.launch{
             resetPasswordViewModel.resetPassword()
         }
+        val supportFragment: FragmentManager? = activity?.supportFragmentManager
+        supportFragment?.beginTransaction()
+            ?.replace(R.id.fragment_container_view, LoginFragment())?.addToBackStack(null)?.commit()
     }
 }

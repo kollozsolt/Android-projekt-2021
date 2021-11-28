@@ -2,6 +2,7 @@ package com.example.projectapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import androidx.fragment.app.FragmentManager
 import com.example.projectapplication.fragments.LoginFragment
@@ -10,11 +11,11 @@ import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
     val supportFragment: FragmentManager = supportFragmentManager
+    val TAG: String = javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.splashScreenTheme)
-        setContentView(R.layout.activity_main)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -22,5 +23,20 @@ class MainActivity : AppCompatActivity() {
 
         supportFragment.beginTransaction()
             .add(R.id.fragment_container_view, LoginFragment()).commit()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart() called!")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause() called!")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop() called!")
     }
 }

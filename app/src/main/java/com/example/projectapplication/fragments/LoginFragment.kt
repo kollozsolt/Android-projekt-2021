@@ -13,8 +13,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
 import com.example.projectapplication.databinding.FragmentLoginBinding
+import com.example.projectapplication.manager.SharedPreferencesManager
 import com.example.projectapplication.repository.Repository
 import com.example.projectapplication.viewmodels.LoginViewModel
 import com.example.projectapplication.viewmodels.LoginViewModelFactory
@@ -33,6 +35,9 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+//        Log.d(TAG, "token = "  + MyApplication.sharedPreferences.getStringValue(
+//            SharedPreferencesManager.KEY_TOKEN, "Empty token!"))
+
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding?.root
     }

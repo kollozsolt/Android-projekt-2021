@@ -2,10 +2,7 @@ package com.example.projectapplication.repository
 
 
 import com.example.projectapplication.api.RetrofitInstance
-import com.example.projectapplication.model.LoginRequest
-import com.example.projectapplication.model.LoginResponse
-import com.example.projectapplication.model.ResetPasswordRequest
-import com.example.projectapplication.model.ResetPasswordResponse
+import com.example.projectapplication.model.*
 
 class Repository {
     suspend fun login(request: LoginRequest): LoginResponse {
@@ -14,5 +11,9 @@ class Repository {
 
     suspend fun resetPassword(request: ResetPasswordRequest): ResetPasswordResponse{
         return RetrofitInstance.api.resetPassword(request)
+    }
+
+    suspend fun registration(request: RegistrationRequest) : RegistrationResponse {
+        return RetrofitInstance.api.registration(request)
     }
 }
