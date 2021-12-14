@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.projectapplication.R
 import com.example.projectapplication.databinding.FragmentRegistrationBinding
-import com.example.projectapplication.databinding.FragmentResetPasswordBinding
 import com.example.projectapplication.repository.Repository
 import com.example.projectapplication.viewmodels.RegistrationViewModel
 import com.example.projectapplication.viewmodels.RegistrationViewModelFactory

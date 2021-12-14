@@ -85,6 +85,9 @@ class LoginFragment : Fragment() {
         lifecycleScope.launch {
             loginViewModel.login()
         }
+        //just in testing phase for the easiest login
+//        val intent = Intent(requireContext(), SecondActivity::class.java)
+//        startActivity(intent)
     }
 
     private fun forgotTextClick() {
