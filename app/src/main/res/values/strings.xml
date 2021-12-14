@@ -16,4 +16,7 @@
     <string name="full_name">Full name</string>
     <string name="phone_number">Phone Number</string>
     <string name="already_have">Already have an account?</string>
+    <string name="timeline">Timeline</string>
+    <string name="my_market">My market</string>
+    <string name="my_fares">My fares</string>
 </resources>

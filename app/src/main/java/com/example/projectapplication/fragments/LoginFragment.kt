@@ -1,5 +1,6 @@
 package com.example.projectapplication.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
+import com.example.projectapplication.SecondActivity
 import com.example.projectapplication.databinding.FragmentLoginBinding
 import com.example.projectapplication.manager.SharedPreferencesManager
 import com.example.projectapplication.repository.Repository
@@ -59,6 +61,9 @@ class LoginFragment : Fragment() {
         loginViewModel.token.observe(viewLifecycleOwner) {
             Log.d(TAG, "navigate to list")
             Toast.makeText(requireContext(), "Login Successfully", Toast.LENGTH_LONG).show()
+
+            val intent = Intent(requireContext(), SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 

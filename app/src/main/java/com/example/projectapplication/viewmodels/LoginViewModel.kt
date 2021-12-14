@@ -1,11 +1,14 @@
 package com.example.projectapplication.viewmodels
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.projectapplication.MyApplication
+import com.example.projectapplication.SecondActivity
 import com.example.projectapplication.manager.SharedPreferencesManager
 import com.example.projectapplication.model.LoginRequest
 import com.example.projectapplication.model.User
@@ -29,6 +32,7 @@ class LoginViewModel(val context: Context, val repository: Repository) : ViewMod
             MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.KEY_TOKEN ,result.token)
             token.value = result.token
             Log.d(TAG, "LoginViewModel - login response: $result")
+
         } catch (e: Exception) {
             Toast.makeText(context, "Login Unsuccessfully", Toast.LENGTH_LONG).show()
             Log.d(TAG, "LoginViewModel - exception: ${e}")

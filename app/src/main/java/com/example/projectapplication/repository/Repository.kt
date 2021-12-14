@@ -16,4 +16,8 @@ class Repository {
     suspend fun registration(request: RegistrationRequest) : RegistrationResponse {
         return RetrofitInstance.api.registration(request)
     }
+
+    suspend fun getProducts(token: String) : ProductResponse {
+        return RetrofitInstance.api.getProducts(token)
+    }
 }
