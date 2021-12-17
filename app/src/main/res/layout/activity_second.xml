@@ -7,17 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@color/B_dark"
-        app:itemIconTint="@color/B_white"
-        app:itemTextColor="@color/B_white"
+        android:background="@color/B_dark"
+        app:itemIconTint="@color/B_gray"
+        app:itemTextColor="@color/B_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_menu" />
+        app:cnb_menuResource="@menu/nav_menu" />
 
     <FrameLayout
         android:id="@+id/fragment_container"

@@ -22,10 +22,9 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
 
     private fun getProducts() {
         viewModelScope.launch {
+            val token = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.KEY_TOKEN, "" )
             try {
-                val result = MyApplication.sharedPreferences.getStringValue(
-                    SharedPreferencesManager.KEY_TOKEN, ""
-                )?.let { repository.getProducts(it) }
+                val result = repository.getProducts(token, 150, "", "{\"title\": 1}", 0)
 
                 products.value = result?.products
                 Log.d("xxx", "ListViewModel - #products:  ${result?.item_count}")

@@ -57,14 +57,6 @@ class LoginFragment : Fragment() {
         forgotText.setOnClickListener { forgotTextClick() }
 
         signupButton.setOnClickListener{ signupOnClick() }
-
-        loginViewModel.token.observe(viewLifecycleOwner) {
-            Log.d(TAG, "navigate to list")
-            Toast.makeText(requireContext(), "Login Successfully", Toast.LENGTH_LONG).show()
-
-            val intent = Intent(requireContext(), SecondActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,9 +77,6 @@ class LoginFragment : Fragment() {
         lifecycleScope.launch {
             loginViewModel.login()
         }
-        //just in testing phase for the easiest login
-//        val intent = Intent(requireContext(), SecondActivity::class.java)
-//        startActivity(intent)
     }
 
     private fun forgotTextClick() {

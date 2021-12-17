@@ -3,6 +3,7 @@ package com.example.projectapplication.viewmodels
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.projectapplication.model.RegistrationRequest
@@ -25,6 +26,7 @@ class RegistrationViewModel(val context: Context, val repository: Repository): V
         )
         try {
             val result = repository.registration(request)
+            Toast.makeText(context, "Registration Successfully", Toast.LENGTH_LONG).show()
             Log.d(TAG, "MyApplication - message ${result.message}")
         } catch (e: Exception) {
             Toast.makeText(context, "Registration Unsuccessfully", Toast.LENGTH_LONG).show()

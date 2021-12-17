@@ -10,6 +10,7 @@ class SharedPreferencesManager(context: Context) {
 
     companion object {
         const val KEY_TOKEN = "SHARED_PREFERENCES_KEY_TOKEN"
+        const val USER_NAME = "SHARED_PREFERENCES_USER_NAME"
     }
 
     fun putStringValue(key: String, value: String) {

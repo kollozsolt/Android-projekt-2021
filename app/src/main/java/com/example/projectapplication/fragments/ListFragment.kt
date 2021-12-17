@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
 import com.example.projectapplication.adapters.DataAdapter
 import com.example.projectapplication.model.Image
@@ -39,6 +40,7 @@ class ListFragment : ProductBaseFragment(), DataAdapter.OnItemClickListener, Dat
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_product_base, container, false)
         recyclerView = view.findViewById(R.id.recycler_view)
+        recyclerView.visibility = View.VISIBLE
         setupRecyclerView()
         listViewModel.products.observe(viewLifecycleOwner){
             adapter.setData(listViewModel.products.value as ArrayList<Product>)

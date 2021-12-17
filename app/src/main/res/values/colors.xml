@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="B_dark">#212121</color>
+    <color name="Dark">#161616</color>
     <color name="B_white">#EEEEEE</color>
     <color name="B_gray">#999999</color>
     <color name="B_turquoise">#00B5C0</color>

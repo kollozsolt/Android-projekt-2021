@@ -7,7 +7,6 @@ data class Image(
     val image_path: String
 )
 
-
 data class Product(
     val rating: Double,
     val amount_type: String,

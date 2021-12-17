@@ -18,9 +18,14 @@ interface MarketApi {
     suspend fun registration(@Body request: RegistrationRequest) : RegistrationResponse
 
     @GET(Constants.GET_PRODUCT_URL)
-    suspend fun getProducts(@Header("token") token: String) : ProductResponse
-//                            @Header("limit") limit:(first: String, second: String),
-//                            @Header("filter") filter: first: String, second: String),
-//                            @Header("sort") sort: (first: String, second: String),
-//                            @Header("skip") skip: Int):ProductResponse
+    suspend fun getProducts(@Header("token") token: String?,
+                            @Header("limit") limit: Int,
+                            @Header("filter") filter: String,
+                            @Header("sort") sort: String,
+                            @Header("skip") skip: Int): ProductResponse
+//
+
+    @GET(Constants.TOKEN_PASSWORD_RESET_URL)
+    suspend fun tokenResetPassword(@Header("token") token: String,
+                                    @Header("new_password") new_password: String) : ResetPasswordResponse
 }

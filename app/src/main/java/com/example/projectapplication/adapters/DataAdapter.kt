@@ -60,9 +60,9 @@ class DataAdapter (
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         val currentItem = list[position]
-        holder.productNameTextView.text = currentItem.title
-        holder.sellerNameTextView.text = currentItem.username
-        holder.priceTextView.text = currentItem.price_per_unit
+        holder.productNameTextView.text = currentItem.title.replace("\"", "")
+        holder.sellerNameTextView.text = currentItem.username.replace("\"", "")
+        holder.priceTextView.text = currentItem.price_per_unit.replace("\"", "")
         val images = currentItem.image
         if (images != null && images.size > 0){
             Log.d("DataClass", "#num_images: ${images.size}")

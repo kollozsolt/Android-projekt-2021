@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <item
+        android:iconTint="@color/B_white"
         android:id="@+id/ic_timeline"
         android:icon="@drawable/ic_timeline"
-        android:title="@string/timeline" />
+        android:title="@string/timeline"
+        android:enabled="true"
+        app:cnb_iconColor="@color/white"
+        />
 
     <item
+        android:iconTint="@color/B_white"
         android:id="@+id/ic_market"
         android:icon="@drawable/ic_market"
-        android:title="@string/my_market"/>
+        android:title="@string/my_market"
+        app:cnb_iconColor="@color/white"/>
 
     <item
+        android:iconTint="@color/B_white"
         android:id="@+id/ic_fares"
         android:icon="@drawable/ic_fares"
-        android:title="@string/my_fares"/>
+        android:title="@string/my_fares"
+        app:cnb_iconColor="@color/white"/>
 </menu>

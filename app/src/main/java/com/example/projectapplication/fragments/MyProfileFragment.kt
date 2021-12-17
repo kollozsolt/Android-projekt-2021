@@ -1,60 +1,49 @@
 package com.example.projectapplication.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.ScrollView
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.FragmentManager
+import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
+import com.example.projectapplication.manager.SharedPreferencesManager
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MyProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MyProfileFragment : ProductBaseFragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_base, container, false)
+        val view =  inflater.inflate(R.layout.fragment_product_base, container, false)
+        val header: ConstraintLayout = view.findViewById(R.id.header_layout)
+        val profilePicture: ImageView = header.findViewById(R.id.profile_image_view)
+        val backButton: ImageView = header.findViewById(R.id.back_image_view)
+        val settingText: TextView = header.findViewById(R.id.settings_text_view)
+        val scrollView: ScrollView = view.findViewById(R.id.profile_settings_scroll_view)
+        val nameTextView: TextView = view.findViewById(R.id.name_text_view)
+        val userName = MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "Helikopteres Laura")
+
+        profilePicture.visibility = View.VISIBLE
+        backButton.visibility = View.VISIBLE
+        scrollView.visibility = View.VISIBLE
+        settingText.visibility = View.VISIBLE
+        nameTextView.text = userName.toString()
+
+        backButton.setOnClickListener{backButtonPress()}
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MyProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MyProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun backButtonPress(){
+        val supportFragment: FragmentManager? = activity?.supportFragmentManager
+        supportFragment?.popBackStack()
     }
 }
