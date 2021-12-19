@@ -13,7 +13,7 @@ data class Product(
     val price_type: String,
     val product_id: String,
     val username: String,
-    val is_Active: Boolean,
+    val is_active: Boolean,
     val price_per_unit: String,
     val units: String,
     val descriptor: String,

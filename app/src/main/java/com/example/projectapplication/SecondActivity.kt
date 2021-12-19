@@ -1,24 +1,12 @@
 package com.example.projectapplication
 
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.WindowManager
-import androidx.core.view.GravityCompat
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.example.projectapplication.databinding.ActivityMainBinding
-import com.example.projectapplication.fragments.ListFragment
-import com.example.projectapplication.fragments.LoginFragment
+import com.example.projectapplication.fragments.ProductFragment
 import com.example.projectapplication.fragments.MyProfileFragment
-import com.example.projectapplication.fragments.RegistrationFragment
-import com.example.projectapplication.manager.SharedPreferencesManager
-import com.example.projectapplication.viewmodels.ListViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 class SecondActivity : AppCompatActivity() {
@@ -30,7 +18,7 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
         supportFragment.beginTransaction()
-            .add(R.id.fragment_container, ListFragment()).commit()
+            .add(R.id.fragment_container, ProductFragment()).commit()
 
         navView = findViewById(R.id.bottom_navigation)
         navView.setItemSelected(R.id.ic_timeline, true)
@@ -38,7 +26,7 @@ class SecondActivity : AppCompatActivity() {
         navView.setOnItemSelectedListener {
             when(it){
                 R.id.ic_timeline -> {
-                    replaceFragment(ListFragment())
+                    replaceFragment(ProductFragment())
                 }
                 R.id.ic_market -> {
                     replaceFragment(MyProfileFragment())

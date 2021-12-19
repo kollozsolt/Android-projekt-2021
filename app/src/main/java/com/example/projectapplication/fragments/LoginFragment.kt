@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
     private val TAG = javaClass.simpleName
-
+    private var mLastClickTime: Long = 0
     private lateinit var loginViewModel: LoginViewModel
 
     private var _binding: FragmentLoginBinding? = null
@@ -66,6 +66,11 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginOnClick(nameEditText: EditText, passwordEditText: EditText) {
+        val currentClickTime: Long = System.currentTimeMillis();
+        val elapsedTime = currentClickTime-mLastClickTime
+        if( elapsedTime <= 2000 )
+            return
+        mLastClickTime = currentClickTime
         loginViewModel.user.value.let {
             if (it != null) {
                 it.username = nameEditText.text.toString()

@@ -39,7 +39,6 @@ class LoginViewModel(val context: Context, val repository: Repository) : ViewMod
 
             val intent = Intent(context, SecondActivity::class.java)
             context.startActivity(intent)
-
         } catch (e: Exception) {
             Toast.makeText(context, "Login Unsuccessfully", Toast.LENGTH_LONG).show()
             Log.d(TAG, "LoginViewModel - exception: ${e}")

@@ -19,13 +19,16 @@ interface MarketApi {
 
     @GET(Constants.GET_PRODUCT_URL)
     suspend fun getProducts(@Header("token") token: String?,
-                            @Header("limit") limit: Int,
-                            @Header("filter") filter: String,
-                            @Header("sort") sort: String,
-                            @Header("skip") skip: Int): ProductResponse
+                            @Header("limit") limit: Int?,
+                            @Header("filter") filter: String?,
+                            @Header("sort") sort: String?,
+                            @Header("skip") skip: Int?): ProductResponse
 //
 
     @GET(Constants.TOKEN_PASSWORD_RESET_URL)
     suspend fun tokenResetPassword(@Header("token") token: String,
                                     @Header("new_password") new_password: String) : ResetPasswordResponse
+
+    @GET(Constants.USER_INFO)
+    suspend fun getUserInfo(@Header("username") username: String?) : UserInfoResponse
 }

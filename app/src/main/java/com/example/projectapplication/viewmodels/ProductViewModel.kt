@@ -11,7 +11,7 @@ import com.example.projectapplication.model.Product
 import com.example.projectapplication.repository.Repository
 import kotlinx.coroutines.launch
 
-class ListViewModel(private val repository: Repository) : ViewModel() {
+class ProductViewModel(private val repository: Repository) : ViewModel() {
     var products: MutableLiveData<List<Product>> = MutableLiveData()
     private val TAG = javaClass.simpleName
 
@@ -23,14 +23,18 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
     private fun getProducts() {
         viewModelScope.launch {
             val token = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.KEY_TOKEN, "" )
+            val limit = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.LIMIT, "150" )
+            val filter = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.FILTER, "" )
+            val sort = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.SORT, "" )
+            val skip = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.SKIP, "0" )
             try {
-                val result = repository.getProducts(token, 150, "", "{\"title\": 1}", 0)
+                val result = repository.getProducts(token, limit?.toInt(), filter , sort, skip?.toInt())
 
                 products.value = result?.products
                 Log.d("xxx", "ListViewModel - #products:  ${result?.item_count}")
             }
             catch(e: Exception){
-                Log.d("xxx", "ListViewMofdel exception: ${e.toString()}")
+                Log.d("xxx", "ListViewModel exception: ${e.toString()}")
             }
         }
     }

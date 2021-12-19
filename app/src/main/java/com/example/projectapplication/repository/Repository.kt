@@ -1,6 +1,7 @@
 package com.example.projectapplication.repository
 
 
+import android.util.Log
 import com.example.projectapplication.api.RetrofitInstance
 import com.example.projectapplication.model.*
 
@@ -17,11 +18,15 @@ class Repository {
         return RetrofitInstance.api.registration(request)
     }
 
-    suspend fun getProducts(token: String?, limit: Int, filter: String, sort: String, skip: Int) : ProductResponse {
+    suspend fun getProducts(token: String?, limit: Int?, filter: String?, sort: String?, skip: Int?) : ProductResponse {
         return RetrofitInstance.api.getProducts(token, limit, filter, sort, skip)
     }
 
     suspend fun tokenPasswordReset(token: String, new_password: String) : ResetPasswordResponse{
         return RetrofitInstance.api.tokenResetPassword(token, new_password)
+    }
+
+    suspend fun getUserInfo(username: String?) : UserInfoResponse{
+        return RetrofitInstance.api.getUserInfo(username)
     }
 }
