@@ -32,6 +32,7 @@ class LoginViewModel(val context: Context, val repository: Repository) : ViewMod
             val result = repository.login(request)
             MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.KEY_TOKEN ,result.token)
             MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.USER_NAME ,result.username)
+            MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.USER_INFO_NAME ,result.username)
             token.value = result.token
             Log.d(TAG, "LoginViewModel - login response: $result")
             Log.d(TAG, "navigate to list")

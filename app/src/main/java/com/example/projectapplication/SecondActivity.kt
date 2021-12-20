@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.projectapplication.fragments.ProductFragment
 import com.example.projectapplication.fragments.MyProfileFragment
+import com.example.projectapplication.manager.SharedPreferencesManager
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 class SecondActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+        MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.FILTER, "")
         supportFragment.beginTransaction()
             .add(R.id.fragment_container, ProductFragment()).commit()
 
@@ -26,10 +28,14 @@ class SecondActivity : AppCompatActivity() {
         navView.setOnItemSelectedListener {
             when(it){
                 R.id.ic_timeline -> {
+                    MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.FILTER, "")
                     replaceFragment(ProductFragment())
                 }
                 R.id.ic_market -> {
-                    replaceFragment(MyProfileFragment())
+                    val name = MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "")
+                    Log.d("KAKA", "{\"username\"}:{\"$name\"}")
+                    MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.FILTER, "{\"username\":\"$name\"}")
+                    replaceFragment(ProductFragment())
                 }
                 R.id.ic_fares -> {
                     replaceFragment(MyProfileFragment())
@@ -39,12 +45,11 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment){
-        if (fragment.javaClass != supportFragmentManager.fragments.last().javaClass){
-            val supportFragment: FragmentManager? = supportFragmentManager
-            supportFragment?.beginTransaction()
-                ?.replace(R.id.fragment_container, fragment)?.addToBackStack(null)?.commit()
-        }
+        val supportFragment: FragmentManager? = supportFragmentManager
+        supportFragment?.beginTransaction()
+            ?.replace(R.id.fragment_container, fragment)?.addToBackStack(null)?.commit()
     }
+
 
     override fun onBackPressed() {
         super.onBackPressed()
@@ -54,6 +59,8 @@ class SecondActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.d(TAG, "onStart() called!")
+        MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.FILTER, "{}")
+        MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.SORT, "{}")
     }
 
     override fun onPause() {
@@ -64,5 +71,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.d(TAG, "onStop() called!")
+        MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.FILTER, "{}")
+        MyApplication.sharedPreferences.putStringValue(SharedPreferencesManager.SORT, "{}")
     }
 }

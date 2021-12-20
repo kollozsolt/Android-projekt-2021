@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.projectapplication.MyApplication
 import com.example.projectapplication.manager.SharedPreferencesManager
 import com.example.projectapplication.model.Data
@@ -18,23 +19,20 @@ class UserInfoViewModel(private val repository: Repository) : ViewModel() {
     var user: MutableLiveData<Data> = MutableLiveData()
 
     init{
-        user.value = Data()
         Log.d(TAG, "ListViewModel constructor - Token: ${SharedPreferencesManager.KEY_TOKEN}")
+        getUserInfo()
     }
 
-    suspend fun getUserInfo(){
-        try{
-            val result = repository.getUserInfo(user.value!!.username)
-            user.value.let {
-                if (it != null) {
-                    it.phone_number = result.data[0].phone_number
-                    it.email = result.data[0].email
-                }
+    private fun getUserInfo(){
+        viewModelScope.launch {
+            try{
+                val name = MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_INFO_NAME, "Helikopteres Laura").toString()
+                val result = repository.getUserInfo(name)
+                user.value = result.data[0]
+//                Log.d("KAKA", "${user.value?.username} - ${user.value?.email} - ${user.value?.phone_number}")
+            } catch(e: Exception){
+                Log.d("xxx", "UserInfo exception: ${e.toString()}")
             }
-
-            Log.d("KAKA", "${user.value?.username} - ${user.value?.email} - ${user.value?.phone_number}")
-        } catch(e: Exception){
-            Log.d("xxx", "UserInfo exception: ${e.toString()}")
         }
     }
 }

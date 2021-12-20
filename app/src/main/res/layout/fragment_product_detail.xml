@@ -14,6 +14,130 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:pageColor="@color/B_turquoise"/>
+        app:pageColor="@color/B_turquoise" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_slider" />
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_toEndOf="@+id/profile_image_view"
+        android:textColor="@color/B_dark"
+        android:textSize="14sp"
+        android:text="@string/lorem_ipsum"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/image_slider"
+        app:layout_constraintLeft_toRightOf="@+id/profile_image_view"/>
+
+    <TextView
+        android:id="@+id/date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_toEndOf="@+id/profile_image_view"
+        android:textColor="@color/B_dark"
+        android:textSize="14sp"
+        android:text="@string/lorem_ipsum"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/image_slider"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textColor="@color/Dark"
+        android:textSize="24sp"
+        android:text="@string/lorem_ipsum"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image_view"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:textColor="@color/Dark"
+        android:textSize="36sp"
+        android:text="@string/lorem_ipsum"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/active_image_view"
+        android:layout_width="120dp"
+        android:layout_height="32dp"
+        android:layout_margin="12dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_active"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+    <TextView
+        android:id="@+id/available_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textColor="@color/Dark"
+        android:textSize="12sp"
+        android:text="@string/lorem_ipsum"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/price_text_view"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/lorem_ipsum"
+        android:textColor="@color/Dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/available_text_view" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/email_image_view"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="72dp"
+        android:src="@drawable/ic_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/order_image_view"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/ic_order"
+        app:layout_constraintEnd_toStartOf="@+id/call_image_view"
+        app:layout_constraintStart_toEndOf="@+id/email_image_view"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/call_image_view"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/ic_call"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

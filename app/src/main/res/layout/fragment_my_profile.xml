@@ -110,6 +110,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/reset_password_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/login_button_style"

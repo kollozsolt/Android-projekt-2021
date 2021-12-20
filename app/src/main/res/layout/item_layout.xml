@@ -40,7 +40,6 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/profile_image_view"
-            android:text="Kollo Zsolt"
             android:textColor="@color/B_dark"
             android:textSize="14sp" />
 

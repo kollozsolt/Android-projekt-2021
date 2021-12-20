@@ -8,18 +8,18 @@ data class Image(
 )
 
 data class Product(
-    val rating: Double,
-    val amount_type: String,
-    val price_type: String,
-    val product_id: String,
-    val username: String,
-    val is_active: Boolean,
-    val price_per_unit: String,
-    val units: String,
-    val descriptor: String,
-    val title: String,
-    val image: List<Image>,
-    val creation_time: Long
+    var rating: Double=0.0,
+    var amount_type: String="",
+    var price_type: String="",
+    var product_id: String="",
+    var username: String="",
+    var is_active: Boolean=true,
+    var price_per_unit: String="",
+    var units: String="",
+    var description: String="",
+    var title: String="",
+    var image: List<Image> = emptyList(),
+    var creation_time: Long=0
 )
 
 data class ProductResponse(val item_count: Int, val products: List<Product>, val timestamp: Long)

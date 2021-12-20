@@ -8,9 +8,14 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
 import com.example.projectapplication.manager.SharedPreferencesManager
+import com.example.projectapplication.repository.Repository
+import com.example.projectapplication.viewmodels.UserInfoViewModel
+import com.example.projectapplication.viewmodels.UserInfoViewModelFactory
 import okhttp3.internal.wait
 
 class MyProfileFragment : BaseFragment() {
@@ -32,13 +37,23 @@ class MyProfileFragment : BaseFragment() {
         val emailEditText: EditText = view.findViewById(R.id.email_text_edit)
         val nameEditText: EditText = view.findViewById(R.id.username_text_edit)
         val phoneEditText: EditText = view.findViewById(R.id.phone_text_edit)
+        val updatePasswordButton: Button = view.findViewById(R.id.reset_password_button)
 
-        Log.d("KAKA12", "${userInfoViewModel.user.value?.email} - ${userInfoViewModel.user.value?.phone_number} - ${userInfoViewModel.user.value?.username}")
+        userInfoViewModel.user.observe(viewLifecycleOwner){
+            nameTextView.text = userInfoViewModel.user.value?.username
+            emailEditText.setText(userInfoViewModel.user.value?.email, TextView.BufferType.EDITABLE)
+            nameEditText.setText(userInfoViewModel.user.value?.username, TextView.BufferType.EDITABLE)
+            phoneEditText.setText(userInfoViewModel.user.value?.phone_number.toString(), TextView.BufferType.EDITABLE)
+            if(userInfoViewModel.user.value?.username != MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "")){
+                updatePasswordButton.visibility = View.GONE
+                settingText.text = "Profile"
+                emailEditText.isEnabled = false
+                nameEditText.isEnabled = false
+                phoneEditText.isEnabled = false
+            }
+        }
 
-        nameTextView.text = userInfoViewModel.user.value?.username
-        emailEditText.setText(userInfoViewModel.user.value?.email, TextView.BufferType.EDITABLE)
-        nameEditText.setText(userInfoViewModel.user.value?.username, TextView.BufferType.EDITABLE)
-        phoneEditText.setText(userInfoViewModel.user.value?.phone_number.toString(), TextView.BufferType.EDITABLE)
+
 
         profilePicture.visibility = View.VISIBLE
         backButton.visibility = View.VISIBLE
@@ -48,7 +63,6 @@ class MyProfileFragment : BaseFragment() {
         backButton.setOnClickListener{backButtonPress()}
         return view
     }
-
 
     private fun backButtonPress(){
         val supportFragment: FragmentManager? = activity?.supportFragmentManager

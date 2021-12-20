@@ -23,4 +23,17 @@
     <string name="reset_password">Reset Password</string>
     <string name="helikopteres_laura">Helikopteres Laura</string>
     <string name="product_detail_preview">Product detail preview</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="rating">Rating</string>
+    <string name="filtering">Filtering</string>
+    <string name="title">Title</string>
+    <string name="active">Active</string>
+    <string name="off">off</string>
+    <string name="inactive">Inactive</string>
+    <string name="sorting">Sorting</string>
+    <string name="descending">Descending</string>
+    <string name="ascending">Ascending</string>
+    <string name="a_z">A-Z</string>
+    <string name="z_a">Z-A</string>
+    <string name="remove_filters">Remove filters</string>
 </resources>

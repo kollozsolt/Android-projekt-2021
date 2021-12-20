@@ -24,8 +24,8 @@ class ProductViewModel(private val repository: Repository) : ViewModel() {
         viewModelScope.launch {
             val token = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.KEY_TOKEN, "" )
             val limit = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.LIMIT, "150" )
-            val filter = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.FILTER, "" )
-            val sort = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.SORT, "" )
+            val filter = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.FILTER, "{}" )
+            val sort = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.SORT, "{}" )
             val skip = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.SKIP, "0" )
             try {
                 val result = repository.getProducts(token, limit?.toInt(), filter , sort, skip?.toInt())
@@ -34,7 +34,7 @@ class ProductViewModel(private val repository: Repository) : ViewModel() {
                 Log.d("xxx", "ListViewModel - #products:  ${result?.item_count}")
             }
             catch(e: Exception){
-                Log.d("xxx", "ListViewModel exception: ${e.toString()}")
+                Log.d("xxx", "ListViewModel exception: ${e}")
             }
         }
     }

@@ -11,8 +11,7 @@ class SharedPreferencesManager(context: Context) {
     companion object {
         const val KEY_TOKEN = "SHARED_PREFERENCES_KEY_TOKEN"
         const val USER_NAME = "SHARED_PREFERENCES_USER_NAME"
-        const val USER_PHONE = "SHARED_PREFERENCES_USER_INFO_PHONE"
-        const val USER_EMAIL = "SHARED_PREFERENCES_USER_INFO_EMAIL"
+        const val USER_INFO_NAME = "SHARED_PREFERENCES_USER_INFO_NAME"
         const val LIMIT = "SHARED_PREFERENCES_LIMIT"
         const val FILTER = "SHARED_PREFERENCES_FILTER"
         const val SORT = "SHARED_PREFERENCES_SORT"
