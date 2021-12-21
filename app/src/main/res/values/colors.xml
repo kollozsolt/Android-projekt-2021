@@ -14,5 +14,6 @@
     <color name="B_turquoise">#00B5C0</color>
     <color name="transparent">#00000000</color>
     <color name="B_transparent">#45000000</color>
+    <color name="Red">#FF1E1E</color>
 
 </resources>

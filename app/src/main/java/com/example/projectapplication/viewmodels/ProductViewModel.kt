@@ -23,7 +23,7 @@ class ProductViewModel(private val repository: Repository) : ViewModel() {
     private fun getProducts() {
         viewModelScope.launch {
             val token = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.KEY_TOKEN, "" )
-            val limit = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.LIMIT, "150" )
+            val limit = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.LIMIT, "20" )
             val filter = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.FILTER, "{}" )
             val sort = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.SORT, "{}" )
             val skip = MyApplication.sharedPreferences.getStringValue( SharedPreferencesManager.SKIP, "0" )

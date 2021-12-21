@@ -61,6 +61,7 @@
                 android:id="@+id/email_text_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:textColor="@color/B_white" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -118,6 +119,16 @@
             android:text="@string/reset_password"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/phone_text_input_layout" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/update_profile_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login_button_style"
+            android:layout_margin="40dp"
+            android:text="@string/update_your_profile"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/reset_password_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

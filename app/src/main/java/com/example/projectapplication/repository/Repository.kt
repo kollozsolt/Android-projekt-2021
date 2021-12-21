@@ -29,4 +29,16 @@ class Repository {
     suspend fun getUserInfo(username: String?) : UserInfoResponse{
         return RetrofitInstance.api.getUserInfo(username)
     }
+
+    suspend fun addProduct(token: String, title:String, description:String, price_per_unit: String, units: String, is_activated:Boolean, amount_type: String, price_type:String, rating:Double) :AddProductResponse{
+        return RetrofitInstance.api.addProduct(token,title, description, price_per_unit, units, is_activated, amount_type, price_type, rating)
+    }
+
+    suspend fun deleteProduct(token: String, product_id: String) : DeleteProductResponse{
+        return RetrofitInstance.api.deleteProduct(token, product_id)
+    }
+
+    suspend fun updateUserData(token: String, phone_number: Int, email: String, username: String) : UserUpdateResponse{
+        return RetrofitInstance.api.updateUserData(token, phone_number, email.replace("\"", ""), username.replace("\"", ""))
+    }
 }

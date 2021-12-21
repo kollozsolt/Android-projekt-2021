@@ -32,10 +32,9 @@ class DataAdapter (
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
-        val productImageView: CircleImageView = itemView.findViewById(R.id.product_image_view)
-        val sellerImageView: CircleImageView = itemView.findViewById(R.id.product_image_view)
         val sellerNameTextView: TextView = itemView.findViewById(R.id.name_text_view)
         val productNameTextView: TextView = itemView.findViewById(R.id.product_name_text_view)
+        val ratingTextView: TextView = itemView.findViewById(R.id.rating_text_view)
         val priceTextView: TextView = itemView.findViewById(R.id.price_text_view)
         val orderImageView: ImageView = itemView.findViewById(R.id.order_image_view)
 
@@ -68,6 +67,7 @@ class DataAdapter (
         holder.productNameTextView.text = currentItem.title.replace("\"", "")
         holder.sellerNameTextView.text = currentItem.username.replace("\"", "")
         holder.priceTextView.text = currentItem.price_per_unit.replace("\"", "")
+        holder.ratingTextView.text = "Rating: ${currentItem.rating}"
 
         if (!currentItem.is_active){
             holder.orderImageView.setImageResource(R.drawable.ic_inacive)

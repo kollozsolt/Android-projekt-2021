@@ -2,7 +2,9 @@ package com.example.projectapplication.fragments
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
+import android.transition.TransitionManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +15,7 @@ import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -60,6 +63,9 @@ class ProductDetailFragment : BaseFragment() {
         val availableTextView: TextView = viewOwn.findViewById(R.id.available_text_view)
         val descriptionTextView: TextView = viewOwn.findViewById(R.id.description_text_view)
         val activeImageView: ImageView = viewOwn.findViewById(R.id.active_image_view)
+        val orderImage: ImageView = view.findViewById(R.id.order_image_view)
+        val emailImage: ImageView = view.findViewById(R.id.email_image_view)
+        val phoneImage: ImageView = view.findViewById(R.id.call_image_view)
 
         carouselView.pageCount = sampleImages.size
 
@@ -73,6 +79,13 @@ class ProductDetailFragment : BaseFragment() {
         priceTextView.text = "${product?.price_per_unit?.replace("\"", "")} ${product?.price_type?.replace("\"", "")}/ ${product?.amount_type?.replace("\"", "")}"
         availableTextView.text = "Available amount: ${product?.units?.replace("\"", "")} ${product?.amount_type?.replace("\"", "")}"
         descriptionTextView.text = product?.description?.replace("\"", "")
+
+        if( !product?.is_active!!) {
+            activeImageView.setImageResource(R.drawable.ic_inacive)
+            orderImage.setImageResource(R.drawable.ic_call)
+            emailImage.visibility = View.GONE
+            phoneImage.visibility = View.GONE
+        }
 
         profileImage.visibility = View.VISIBLE
         backButton.visibility = View.VISIBLE

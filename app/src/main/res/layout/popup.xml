@@ -1,282 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/filtering_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/filtering"
-        android:textColor="@color/Dark"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-    <TextView
-        android:id="@+id/rating_filter_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/rating"
-        android:textColor="@color/B_turquoise"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filtering_text_view" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/rating_text_input_layout"
-        style="@style/LoginTextInputLayoutStyle"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:hint="@string/rating"
-        android:textColorHint="@color/B_white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filtering_text_view">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/rating_text_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textColor="@color/B_dark" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/username_filter_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/username"
-        android:textColor="@color/B_turquoise"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rating_filter_text_view" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/username_text_input_layout"
-        style="@style/LoginTextInputLayoutStyle"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:hint="@string/username"
-        android:textColorHint="@color/B_white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rating_filter_text_view">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_text_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/B_dark" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/title_filter_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/title"
-        android:textColor="@color/B_turquoise"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_filter_text_view" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/title_text_input_layout"
-        style="@style/LoginTextInputLayoutStyle"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:hint="@string/title"
-        android:textColorHint="@color/B_white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_filter_text_view">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title_text_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/B_dark" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/active_filter_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/active"
-        android:textColor="@color/B_turquoise"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_filter_text_view" />
-
-<!--    <androidx.appcompat.widget.SwitchCompat-->
-<!--        android:id="@+id/active_switch"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="80dp"-->
-<!--        android:thumb="@drawable/thumb"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/title_text_input_layout"-->
-<!--        app:track="@drawable/track" />-->
-    <RadioGroup
-        android:id="@+id/active_radio_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_filter_text_view">
-
-        <RadioButton
-            android:id="@+id/active_true"
+        <TextView
+            android:id="@+id/filtering_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/filtering"
+            android:textColor="@color/Dark"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rating_filter_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/rating"
+            android:textColor="@color/B_turquoise"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filtering_text_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rating_text_input_layout"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/rating"
+            android:textColorHint="@color/B_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filtering_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/rating_text_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="@color/B_dark" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/limit_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/limit"
+            android:textColor="@color/B_turquoise"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rating_filter_text_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/limit_text_input_layout"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/rating"
+            android:textColorHint="@color/B_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rating_filter_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/limit_text_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/B_dark" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/username_filter_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/username"
+            android:textColor="@color/B_turquoise"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/limit_text_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username_text_input_layout"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/username"
+            android:textColorHint="@color/B_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/limit_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_text_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/B_dark" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_filter_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/title"
+            android:textColor="@color/B_turquoise"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username_filter_text_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/title_text_input_layout"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/title"
+            android:textColorHint="@color/B_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username_filter_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_text_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/B_dark" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/active_filter_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
             android:text="@string/active"
-            android:textColor="@color/Dark" />
+            android:textColor="@color/B_turquoise"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_filter_text_view" />
 
-        <RadioButton
-            android:id="@+id/active_false"
+        <RadioGroup
+            android:id="@+id/active_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/inactive"
-            android:textColor="@color/Dark" />
-    </RadioGroup>
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_filter_text_view">
 
-    <TextView
-        android:id="@+id/sorting_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/sorting"
-        android:textColor="@color/Dark"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/active_filter_text_view" />
+            <RadioButton
+                android:id="@+id/active_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/active"
+                android:textColor="@color/Dark" />
 
-    <TextView
-        android:id="@+id/title_sort_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/title"
-        android:textColor="@color/B_turquoise"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sorting_text_view" />
+            <RadioButton
+                android:id="@+id/active_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inactive"
+                android:textColor="@color/Dark" />
+        </RadioGroup>
 
-    <RadioGroup
-        android:id="@+id/title_radio_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sorting_text_view">
-
-        <RadioButton
-            android:id="@+id/title_asc"
+        <TextView
+            android:id="@+id/sorting_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/a_z"
-            android:textColor="@color/Dark" />
-
-        <RadioButton
-            android:id="@+id/title_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/z_a"
-            android:textColor="@color/Dark" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/rating_sort_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/rating"
-        android:textColor="@color/B_turquoise"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_sort_text_view" />
-
-    <RadioGroup
-        android:id="@+id/rating_radio_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_sort_text_view">
-
-        <RadioButton
-            android:id="@+id/rating_asc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ascending"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/sorting"
             android:textColor="@color/Dark"
-            android:textSize="10sp" />
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/active_filter_text_view" />
 
-        <RadioButton
-            android:id="@+id/rating_desc"
+        <TextView
+            android:id="@+id/title_sort_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/descending"
-            android:textColor="@color/Dark"
-            android:textSize="10sp" />
-    </RadioGroup>
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/title"
+            android:textColor="@color/B_turquoise"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sorting_text_view" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/filtering_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:background="@drawable/login_button_style"
-        android:text="@string/filtering"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rating_sort_text_view" />
+        <RadioGroup
+            android:id="@+id/title_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sorting_text_view">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/remove_filters_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:background="@drawable/login_button_style"
-        android:text="@string/remove_filters"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filtering_button" />
+            <RadioButton
+                android:id="@+id/title_asc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/a_z"
+                android:textColor="@color/Dark" />
 
+            <RadioButton
+                android:id="@+id/title_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/z_a"
+                android:textColor="@color/Dark" />
+        </RadioGroup>
 
+        <TextView
+            android:id="@+id/rating_sort_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/rating"
+            android:textColor="@color/B_turquoise"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_sort_text_view" />
 
+        <RadioGroup
+            android:id="@+id/rating_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_sort_text_view">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/rating_asc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ascending"
+                android:textColor="@color/Dark"
+                android:textSize="10sp" />
+
+            <RadioButton
+                android:id="@+id/rating_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descending"
+                android:textColor="@color/Dark"
+                android:textSize="10sp" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/filtering_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:background="@drawable/login_button_style"
+            android:text="@string/filtering"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rating_sort_text_view" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/remove_filters_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:background="@drawable/login_button_style"
+            android:text="@string/remove_filters"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filtering_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 

@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.example.projectapplication.R
 import com.example.projectapplication.repository.Repository
 import com.example.projectapplication.viewmodels.UserInfoViewModel
 import com.example.projectapplication.viewmodels.UserInfoViewModelFactory
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 abstract class BaseFragment : Fragment() {
 

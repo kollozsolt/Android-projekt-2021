@@ -8,4 +8,7 @@ object Constants {
     const val GET_PRODUCT_URL="products"
     const val TOKEN_PASSWORD_RESET_URL="user/reset"
     const val USER_INFO="user/data"
+    const val ADD_PRODUCT_URL="products/add"
+    const val DELETE_PRODUCT_URL="products/remove?product_id="
+    const val UPDATE_PROFILE_URL="user/update"
 }

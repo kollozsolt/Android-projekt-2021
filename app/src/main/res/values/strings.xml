@@ -36,4 +36,31 @@
     <string name="a_z">A-Z</string>
     <string name="z_a">Z-A</string>
     <string name="remove_filters">Remove filters</string>
+    <string name="limit">Limit</string>
+    <string name="today">Today</string>
+    <string name="give_detail">Give us details about your fare</string>
+    <string name="price_amount">Price/Amount</string>
+    <string name="price_type">Price type</string>
+    <string name="available_amount">Available amount</string>
+    <string name="short_description">Short description</string>
+    <string name="preview">Preview my fare</string>
+    <string name="launch">Launch my fare</string>
+    <string name="create_your_fare">Create your fare</string>
+    <string name="update_your_profile">Update your profile</string>
+
+    <string-array name="price_type_arr">
+        <item>RON</item>
+        <item>EUR</item>
+        <item>USD</item>
+        <item>BTC</item>
+        <item>ETH</item>
+    </string-array>
+
+    <string-array name="amount_type_arr">
+        <item>Kg</item>
+        <item>g</item>
+        <item>l</item>
+        <item>dl</item>
+        <item>db</item>
+    </string-array>
 </resources>
