@@ -47,6 +47,8 @@
     <string name="launch">Launch my fare</string>
     <string name="create_your_fare">Create your fare</string>
     <string name="update_your_profile">Update your profile</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm new password</string>
 
     <string-array name="price_type_arr">
         <item>RON</item>

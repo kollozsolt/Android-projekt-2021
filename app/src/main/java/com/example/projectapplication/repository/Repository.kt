@@ -41,4 +41,8 @@ class Repository {
     suspend fun updateUserData(token: String, phone_number: Int, email: String, username: String) : UserUpdateResponse{
         return RetrofitInstance.api.updateUserData(token, phone_number, email.replace("\"", ""), username.replace("\"", ""))
     }
+
+    suspend fun updatePassword(token: String?, new_password: String?) :ResetPasswordResponse{
+        return RetrofitInstance.api.updatePassword(token, new_password)
+    }
 }

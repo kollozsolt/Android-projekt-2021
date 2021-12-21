@@ -75,6 +75,7 @@ class MyProfileFragment : BaseFragment() {
         scrollView.visibility = View.VISIBLE
         settingText.visibility = View.VISIBLE
 
+        updatePasswordButton.setOnClickListener{updatePasswordClick()}
         backButton.setOnClickListener{backButtonPress()}
         return view
     }
@@ -82,6 +83,12 @@ class MyProfileFragment : BaseFragment() {
     private fun backButtonPress(){
         val supportFragment: FragmentManager? = activity?.supportFragmentManager
         supportFragment?.popBackStack()
+    }
+
+    private fun updatePasswordClick(){
+        val supportFragment: FragmentManager? = activity?.supportFragmentManager
+        supportFragment?.beginTransaction()
+            ?.replace(R.id.fragment_container, NewPasswordFragment())?.addToBackStack(null)?.commit()
     }
 
     private fun updateClick(){

@@ -51,4 +51,8 @@ interface MarketApi {
                                 @Part("phone_number") phone_number: Int,
                                 @Part("email") email: String,
                                 @Part("username") username: String ) : UserUpdateResponse
+
+    @GET(Constants.RESET_PASSWORD_URL)
+    suspend fun updatePassword(@Header("token") token: String?,
+                                @Header("new_password") new_password: String?) : ResetPasswordResponse
 }

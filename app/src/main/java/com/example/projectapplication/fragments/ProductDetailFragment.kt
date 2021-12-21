@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
 import com.example.projectapplication.manager.SharedPreferencesManager
+import com.example.projectapplication.model.Image
 import com.example.projectapplication.model.Product
 import com.example.projectapplication.viewmodels.SharedViewModel
 import com.synnapps.carouselview.CarouselView
@@ -66,6 +67,8 @@ class ProductDetailFragment : BaseFragment() {
         val orderImage: ImageView = view.findViewById(R.id.order_image_view)
         val emailImage: ImageView = view.findViewById(R.id.email_image_view)
         val phoneImage: ImageView = view.findViewById(R.id.call_image_view)
+        val name = MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "")
+        val editButton: ImageView = view.findViewById(R.id.edit_image_view)
 
         carouselView.pageCount = sampleImages.size
 
@@ -85,6 +88,10 @@ class ProductDetailFragment : BaseFragment() {
             orderImage.setImageResource(R.drawable.ic_call)
             emailImage.visibility = View.GONE
             phoneImage.visibility = View.GONE
+        }
+
+        if(product?.username == name){
+            editButton.visibility = View.VISIBLE
         }
 
         profileImage.visibility = View.VISIBLE
