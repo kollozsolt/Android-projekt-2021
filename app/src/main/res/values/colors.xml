@@ -12,6 +12,7 @@
     <color name="B_white">#EEEEEE</color>
     <color name="B_gray">#999999</color>
     <color name="B_turquoise">#00B5C0</color>
+    <color name="D_turquoise">#1B898F</color>
     <color name="transparent">#00000000</color>
     <color name="B_transparent">#45000000</color>
     <color name="Red">#FF1E1E</color>

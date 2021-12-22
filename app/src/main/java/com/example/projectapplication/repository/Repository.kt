@@ -22,10 +22,6 @@ class Repository {
         return RetrofitInstance.api.getProducts(token, limit, filter, sort, skip)
     }
 
-    suspend fun tokenPasswordReset(token: String, new_password: String) : ResetPasswordResponse{
-        return RetrofitInstance.api.tokenResetPassword(token, new_password)
-    }
-
     suspend fun getUserInfo(username: String?) : UserInfoResponse{
         return RetrofitInstance.api.getUserInfo(username)
     }
@@ -44,5 +40,13 @@ class Repository {
 
     suspend fun updatePassword(token: String?, new_password: String?) :ResetPasswordResponse{
         return RetrofitInstance.api.updatePassword(token, new_password)
+    }
+
+    suspend fun getOrders(token: String?, limit: Int?, filter: String?, sort: String?) : FareResponse{
+        return RetrofitInstance.api.getOrders(token, limit, filter, sort)
+    }
+
+    suspend fun addOrder(token: String, title: String, description: String, price_per_unit: String, units: String, owner_username: String) : AddOrderResponse{
+        return RetrofitInstance.api.sendOrder(token, title, description, price_per_unit, units, owner_username)
     }
 }

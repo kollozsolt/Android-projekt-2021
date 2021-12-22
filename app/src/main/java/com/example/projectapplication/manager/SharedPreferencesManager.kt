@@ -16,6 +16,10 @@ class SharedPreferencesManager(context: Context) {
         const val FILTER = "SHARED_PREFERENCES_FILTER"
         const val SORT = "SHARED_PREFERENCES_SORT"
         const val SKIP = "SHARED_PREFERENCES_SKIP"
+        const val ORDER_LIMIT = "SHARED_PREFERENCES_ORDER_LIMIT"
+        const val ORDER_FILTER = "SHARED_PREFERENCES_ORDER_FILTER"
+        const val ORDER_SORT = "SHARED_PREFERENCES_ORDER_SORT"
+        const val ORDER_SKIP = "SHARED_PREFERENCES_ORDER_SKIP"
     }
 
     fun putStringValue(key: String, value: String) {

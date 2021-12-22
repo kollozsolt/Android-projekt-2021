@@ -26,6 +26,7 @@
     </style>
 
     <style name="splashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/B_turquoise</item>
         <item name="android:windowBackground">@drawable/splash_image</item>
         <item name="android:statusBarColor">@color/black</item>
     </style>

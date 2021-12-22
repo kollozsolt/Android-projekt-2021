@@ -19,14 +19,20 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
 import com.example.projectapplication.manager.SharedPreferencesManager
 import com.example.projectapplication.model.Image
 import com.example.projectapplication.model.Product
+import com.example.projectapplication.repository.Repository
+import com.example.projectapplication.viewmodels.AddOrderViewModel
+import com.example.projectapplication.viewmodels.AddOrderViewModelFactory
+import com.example.projectapplication.viewmodels.ProductViewModelFactory
 import com.example.projectapplication.viewmodels.SharedViewModel
 import com.synnapps.carouselview.CarouselView
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -41,6 +47,13 @@ class ProductDetailFragment : BaseFragment() {
     private var product: Product? = Product()
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
+    private lateinit var addOrderViewModel: AddOrderViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val factory = AddOrderViewModelFactory(requireContext(), Repository())
+        addOrderViewModel = ViewModelProvider(this, factory).get(AddOrderViewModel::class.java)
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -92,6 +105,13 @@ class ProductDetailFragment : BaseFragment() {
 
         if(product?.username == name){
             editButton.visibility = View.VISIBLE
+            orderImage.visibility = View.GONE
+            emailImage.visibility = View.GONE
+            phoneImage.visibility = View.GONE
+        }
+
+        if(product?.is_active == true && product?.username != name){
+            orderImage.setOnClickListener{orderingClick()}
         }
 
         profileImage.visibility = View.VISIBLE
@@ -122,5 +142,21 @@ class ProductDetailFragment : BaseFragment() {
         val date = Date(time)
         val format = SimpleDateFormat("yyyy.MM.dd HH:mm")
         return format.format(date)
+    }
+
+    private fun orderingClick(){
+        Log.d("KAKA", "${product?.title} - ${product?.description} - ${product?.price_per_unit} - ${product?.units} - ${product?.username}")
+        addOrderViewModel.orderedProduct.value.let {
+            if(it != null){
+                it.title = product?.title.toString()
+                it.description = product?.description.toString()
+                it.price_per_unit = product?.price_per_unit.toString()
+                it.units = product?.units.toString()
+                it.owner_username = product?.username.toString()
+            }
+        }
+        lifecycleScope.launch{
+            addOrderViewModel.orderProduct()
+        }
     }
 }

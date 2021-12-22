@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.example.projectapplication.fragments.MyFaresFragment
 import com.example.projectapplication.fragments.ProductFragment
 import com.example.projectapplication.fragments.MyProfileFragment
 import com.example.projectapplication.manager.SharedPreferencesManager
@@ -38,7 +39,7 @@ class SecondActivity : AppCompatActivity() {
                     replaceFragment(ProductFragment())
                 }
                 R.id.ic_fares -> {
-                    replaceFragment(MyProfileFragment())
+                    replaceFragment(MyFaresFragment())
                 }
             }
         }

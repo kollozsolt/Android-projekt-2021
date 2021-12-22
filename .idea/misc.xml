@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/custom_radio_button_icon.xml" value="0.24583333333333332" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_3ss_logo.xml" value="0.2703125" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_android.xml" value="0.2703125" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/drawable/ic_baseline_no_drinks_24.xml" value="0.2703125" />
@@ -33,11 +34,13 @@
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/activity_second.xml" value="0.26121794871794873" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_add_product.xml" value="0.36666666666666664" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_base.xml" value="0.264" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_fares_list.xml" value="0.2296875" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_forgot_password.xml" value="0.24094202898550723" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_list.xml" value="0.264" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_log_in.xml" value="0.264" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_my_fares.xml" value="0.4" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_my_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_new_password.xml" value="0.2296875" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_product_base.xml" value="0.25" />
@@ -46,6 +49,7 @@
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_registration.xml" value="0.264" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/fragment_reset_password.xml" value="0.24094202898550723" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/item_layout.xml" value="0.4" />
+        <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/order_item_layout.xml" value="0.4" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/layout/popup.xml" value="0.30238393977415307" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/menu-v26/nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Egyetem/VII.felev/Android/Android-projekt-2021/app/src/main/res/menu/nav_menu.xml" value="0.36666666666666664" />

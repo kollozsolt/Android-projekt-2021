@@ -1,13 +1,11 @@
 package com.example.projectapplication.adapters
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +13,6 @@ import com.example.projectapplication.MyApplication
 import com.example.projectapplication.R
 import com.example.projectapplication.manager.SharedPreferencesManager
 import com.example.projectapplication.model.Product
-import de.hdodenhof.circleimageview.CircleImageView
 
 class DataAdapter (
     private var list: ArrayList<Product>,

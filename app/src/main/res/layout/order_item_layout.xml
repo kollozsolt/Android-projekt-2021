@@ -1,6 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="8dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_user" />
+
+        <TextView
+            android:id="@+id/name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/profile_image_view"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/B_dark"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/timestamp_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/name_text_view"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/B_dark"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/detail_button_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:rotation="-90"
+            android:src="@drawable/ic_baseline_navigate_before_24"
+            card_view:tint="@color/Dark" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/product_image_view"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="8dp"
+            android:layout_below="@+id/profile_image_view"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_android" />
+
+        <TextView
+            android:id="@+id/order_type_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_text_view"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/product_image_view"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/B_turquoise" />
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_type_text_view"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/product_image_view"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/Dark"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/description_text_view"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_text_view"
+            android:layout_toEndOf="@+id/product_image_view"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/Dark"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/amount_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description_text_view"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/product_image_view"
+            android:text="@string/lorem_ipsum" />
+
+        <TextView
+            android:id="@+id/price_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description_text_view"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/amount_text_view"
+            android:text="@string/lorem_ipsum" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

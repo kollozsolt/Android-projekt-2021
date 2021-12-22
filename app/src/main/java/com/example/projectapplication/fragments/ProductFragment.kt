@@ -68,8 +68,7 @@ class ProductFragment : BaseFragment(), DataAdapter.OnItemClickListener,
             adapter.setData(productViewModel.products.value as ArrayList<Product>)
             adapter.notifyDataSetChanged()
         }
-        val myName =
-            MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "")
+        val myName = MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "")
         val header: ConstraintLayout = view.findViewById(R.id.header_layout)
         val profilePicture: ImageView = header.findViewById(R.id.profile_image_view)
         val logo: ImageView = header.findViewById(R.id.logo_image_view)
