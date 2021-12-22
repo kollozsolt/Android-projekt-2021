@@ -10,6 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectapplication.R
 import com.example.projectapplication.model.Order
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class FaresDataAdapter(
     private var list: ArrayList<Order>,
@@ -56,8 +59,8 @@ class FaresDataAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         val currentItem = list[position]
-        holder.sellerNameTextView.text = currentItem.owner_username.replace("\"", "")
-        holder.timeStampTextView.text = currentItem.creation_time.toString()
+        holder.sellerNameTextView.text = currentItem.username.replace("\"", "")
+        holder.timeStampTextView.text = convertLongToTime(currentItem.creation_time)
         holder.statusTextView.text = currentItem.status.replace("\"","")
         holder.productNameTextView.text = currentItem.title.replace("\"", "")
         holder.amountTextView.text = "Amount: ${currentItem.units.replace("\"", "")}"
@@ -70,6 +73,12 @@ class FaresDataAdapter(
 
     fun setData(newList: ArrayList<Order>){
         list = newList
+    }
+
+    fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat("yyyy.MM.dd HH:mm")
+        return format.format(date)
     }
 
 }

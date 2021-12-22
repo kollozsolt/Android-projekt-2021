@@ -2,14 +2,13 @@ package com.example.projectapplication.fragments
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.get
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -25,8 +24,6 @@ import com.example.projectapplication.model.Product
 import com.example.projectapplication.repository.Repository
 import com.example.projectapplication.viewmodels.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import kotlinx.coroutines.launch
 
@@ -38,6 +35,10 @@ class ProductFragment : BaseFragment(), DataAdapter.OnItemClickListener,
     private lateinit var adapter: DataAdapter
     private var product: Product? = Product()
     private lateinit var filterIcon: ImageView
+    private lateinit var searchRelativeLayout: RelativeLayout
+    private lateinit var searchButton: ImageView
+    private lateinit var searchIcon: ImageView
+    private lateinit var searchTextView: EditText
     private var myMarket: View? = null
 
 
@@ -49,7 +50,8 @@ class ProductFragment : BaseFragment(), DataAdapter.OnItemClickListener,
         val factory = ProductViewModelFactory(Repository())
         val factoryDelete = DeleteProductViewModelFactory(requireContext(), Repository())
         productViewModel = ViewModelProvider(this, factory).get(ProductViewModel::class.java)
-        deleteProductViewModel = ViewModelProvider(this, factoryDelete).get(DeleteProductViewModel::class.java)
+        deleteProductViewModel =
+            ViewModelProvider(this, factoryDelete).get(DeleteProductViewModel::class.java)
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -68,26 +70,33 @@ class ProductFragment : BaseFragment(), DataAdapter.OnItemClickListener,
             adapter.setData(productViewModel.products.value as ArrayList<Product>)
             adapter.notifyDataSetChanged()
         }
-        val myName = MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "")
+        val myName =
+            MyApplication.sharedPreferences.getStringValue(SharedPreferencesManager.USER_NAME, "")
         val header: ConstraintLayout = view.findViewById(R.id.header_layout)
         val profilePicture: ImageView = header.findViewById(R.id.profile_image_view)
         val logo: ImageView = header.findViewById(R.id.logo_image_view)
         val floatingButtonAdd: FloatingActionButton = view.findViewById(R.id.add_floating_button)
         filterIcon = header.findViewById(R.id.filter_image_view)
-        val searchIcon: ImageView = header.findViewById(R.id.search_image_view)
+        searchButton = header.findViewById(R.id.search_image_view)
         val navBase: ChipNavigationBar? = activity?.findViewById(R.id.bottom_navigation)
-        myMarket= navBase?.findViewById(R.id.ic_market)
+        searchRelativeLayout = view.findViewById(R.id.search_relative_layout)
+        searchIcon = searchRelativeLayout.findViewById(R.id.search_icon)
+        searchTextView = searchRelativeLayout.findViewById(R.id.search_text_input)
+        myMarket = navBase?.findViewById(R.id.ic_market)
+
         profilePicture.visibility = View.VISIBLE
         logo.visibility = View.VISIBLE;
         if (myMarket?.isSelected == false) {
             filterIcon.visibility = View.VISIBLE
-            searchIcon.visibility = View.VISIBLE
-        } else{
+            searchButton.visibility = View.VISIBLE
+        } else {
             floatingButtonAdd.visibility = View.VISIBLE
-            floatingButtonAdd.setOnClickListener{floatingAddClick()}
+            floatingButtonAdd.setOnClickListener { floatingAddClick() }
         }
-        filterIcon.setOnClickListener { filterClick() }
 
+        filterIcon.setOnClickListener { filterClick() }
+        searchButton.setOnClickListener { searchClick() }
+        searchIcon.setOnClickListener { searchingClick() }
 
         profilePicture.setOnClickListener {
             if (myName != null) {
@@ -135,9 +144,10 @@ class ProductFragment : BaseFragment(), DataAdapter.OnItemClickListener,
                 .setCancelable(false)
                 .setPositiveButton("Yes") { dialog, id ->
                     Log.d("KAKA", "torles")
-                    val product_id : String= productViewModel.products.value?.get(position)?.product_id!!.toString()
+                    val product_id: String =
+                        productViewModel.products.value?.get(position)?.product_id!!.toString()
                     deleteProductViewModel.product_id.let {
-                        if(it!=null) {
+                        if (it != null) {
                             it.value = product_id
                         }
                     }
@@ -152,7 +162,7 @@ class ProductFragment : BaseFragment(), DataAdapter.OnItemClickListener,
                         ?.replace(R.id.fragment_container, ProductFragment())?.addToBackStack(null)
                         ?.commit()
                 }
-                .setNegativeButton("No"){ dialog, id ->
+                .setNegativeButton("No") { dialog, id ->
                     dialog.dismiss()
                 }
             val alert = builder.create()
@@ -249,11 +259,39 @@ class ProductFragment : BaseFragment(), DataAdapter.OnItemClickListener,
             ?.replace(R.id.fragment_container, ProductFragment())?.addToBackStack(null)?.commit()
     }
 
-    private fun floatingAddClick(){
+    private fun floatingAddClick() {
         val supportFragment: FragmentManager? = activity?.supportFragmentManager
         supportFragment?.beginTransaction()
             ?.replace(R.id.fragment_container, AddProductFragment())?.addToBackStack(null)
             ?.commit()
     }
 
+    private fun searchClick() {
+        if (searchRelativeLayout.visibility == View.GONE) {
+            searchRelativeLayout.visibility = View.VISIBLE
+            searchButton.setColorFilter(getResources().getColor(R.color.B_turquoise))
+        } else {
+            searchRelativeLayout.visibility = View.GONE
+            searchButton.setColorFilter(getResources().getColor(R.color.white))
+            productViewModel.products.observe(viewLifecycleOwner) {
+                adapter.setData(productViewModel.products.value as ArrayList<Product>)
+                adapter.notifyDataSetChanged()
+            }
+        }
+    }
+
+    private fun searchingClick() {
+        val text = searchTextView.text.toString()
+        if (text != "") {
+            productViewModel.products.observe(viewLifecycleOwner) {
+                adapter.setData((productViewModel.products.value as ArrayList<Product>).filter { it.title.replace("\"", "").contains(text) } as ArrayList<Product>)
+                adapter.notifyDataSetChanged()
+            }
+        } else {
+            productViewModel.products.observe(viewLifecycleOwner) {
+                adapter.setData(productViewModel.products.value as ArrayList<Product>)
+                adapter.notifyDataSetChanged()
+            }
+        }
+    }
 }

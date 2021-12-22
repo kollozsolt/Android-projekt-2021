@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
@@ -21,8 +24,8 @@ abstract class BaseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_base, container, false)
+        val header: ConstraintLayout = view.findViewById(R.id.header_layout)
         return view;
     }
 
@@ -30,8 +33,6 @@ abstract class BaseFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val factory = UserInfoViewModelFactory(Repository())
         userInfoViewModel = ViewModelProvider(this, factory).get(UserInfoViewModel::class.java)
-
-//        Log.d("KAKA12", "${userInfoViewModel.user.value?.email} - ${userInfoViewModel.user.value?.phone_number} - ${userInfoViewModel.user.value?.username}")
     }
 
 }

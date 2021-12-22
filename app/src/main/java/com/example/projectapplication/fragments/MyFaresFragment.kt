@@ -77,8 +77,7 @@ class MyFaresFragment : BaseFragment(){
 
         setupRecyclerView()
         orderViewModel.orders.observe(viewLifecycleOwner) {
-
-            adapter.setData((orderViewModel.orders.value as ArrayList<Order>).filter { it.owner_username == name } as ArrayList<Order>)
+            adapter.setData((orderViewModel.orders.value as ArrayList<Order>).filter { it.owner_username.replace("\"", "") == name } as ArrayList<Order>)
             adapter.notifyDataSetChanged()
         }
         ongoingOrdersButton.setOnClickListener{ongoingClick()}
@@ -100,13 +99,13 @@ class MyFaresFragment : BaseFragment(){
         if(ongoingSalesButton.isChecked){
             Log.d("KAKA", "ONGOINGSALES")
             orderViewModel.orders.observe(viewLifecycleOwner) {
-                adapter.setData((orderViewModel.orders.value as ArrayList<Order>).filter { it.owner_username == name } as ArrayList<Order>)
+                adapter.setData((orderViewModel.orders.value as ArrayList<Order>).filter { it.owner_username.replace("\"", "") == name } as ArrayList<Order>)
                 adapter.notifyDataSetChanged()
             }
         } else{
             Log.d("KAKA", "ONGOINGORDERS")
             orderViewModel.orders.observe(viewLifecycleOwner) {
-                adapter.setData((orderViewModel.orders.value as ArrayList<Order>).filter { it.username == name } as ArrayList<Order>)
+                adapter.setData((orderViewModel.orders.value as ArrayList<Order>).filter { it.username.replace("\"", "") == name } as ArrayList<Order>)
                 adapter.notifyDataSetChanged()
             }
         }
