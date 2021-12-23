@@ -51,6 +51,9 @@
     <string name="ongoing_sales">Ongoing Sales</string>
     <string name="ongoing_orders">Ongoing Orders</string>
     <string name="my_fares">My fares</string>
+    <string name="description">Description</string>
+    <string name="amount">Amount</string>
+    <string name="order">Order</string>
 
     <string-array name="price_type_arr">
         <item>RON</item>

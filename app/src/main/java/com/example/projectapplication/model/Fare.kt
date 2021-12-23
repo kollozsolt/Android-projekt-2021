@@ -50,3 +50,9 @@ data class OrderedProduct(
     var units: String = "",
     var owner_username: String = "",
 )
+
+data class DeleteOrderResponse(
+    var message: String = "",
+    var order_id: String = "",
+    var deletion_time: Long = 0
+)

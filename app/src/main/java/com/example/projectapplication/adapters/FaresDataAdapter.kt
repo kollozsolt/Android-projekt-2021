@@ -9,13 +9,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectapplication.R
+import com.example.projectapplication.model.Image
 import com.example.projectapplication.model.Order
+import com.example.projectapplication.viewmodels.DeleteProductViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class FaresDataAdapter(
     private var list: ArrayList<Order>,
+    private var listener: DataAdapter.OnItemClickListener,
+    private val listener2: DataAdapter.OnItemLongClickListener
 ) : RecyclerView.Adapter<FaresDataAdapter.DataViewHolder>(){
 
     interface OnItemClickListener{
@@ -26,7 +30,7 @@ class FaresDataAdapter(
         fun onItemLongClick(position: Int)
     }
 
-    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener{
         val sellerNameTextView: TextView = itemView.findViewById(R.id.name_text_view)
         val timeStampTextView: TextView = itemView.findViewById(R.id.timestamp_text_view)
         val detailButton: ImageView = itemView.findViewById(R.id.detail_button_image_view)
@@ -38,6 +42,19 @@ class FaresDataAdapter(
 
         init {
             detailButton.setOnClickListener{detailCLick()}
+            itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val currentPosition = this.adapterPosition
+            listener.onItemClick(currentPosition)
+        }
+
+        override fun onLongClick(v: View?): Boolean {
+            val currentPosition = this.adapterPosition
+            listener2.onItemLongClick(currentPosition)
+            return true
         }
 
         private fun detailCLick(){
@@ -66,7 +83,6 @@ class FaresDataAdapter(
         holder.amountTextView.text = "Amount: ${currentItem.units.replace("\"", "")}"
         holder.priceTextView.text = "Price: ${currentItem.price_per_unit.replace("\"", "")}"
         holder.descriptionTextView.text = currentItem.description.replace("\"", "")
-
     }
 
     override fun getItemCount() = list.size

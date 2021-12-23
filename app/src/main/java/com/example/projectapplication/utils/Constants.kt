@@ -13,4 +13,5 @@ object Constants {
     const val UPDATE_PROFILE_URL="user/update"
     const val ORDERS_URL="orders"
     const val SEND_ORDER_URL="orders/add"
+    const val DELETE_ORDER_URL="orders/remove/?order_id="
 }

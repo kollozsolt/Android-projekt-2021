@@ -70,4 +70,8 @@ interface MarketApi {
                           @Part("price_per_unit") price_per_unit: String,
                           @Part("units") units: String,
                           @Part("owner_username") owner_username: String) : AddOrderResponse
+
+    @POST(Constants.DELETE_ORDER_URL)
+    suspend fun deleteOrder( @Header("token") token: String,
+                               @Query("order_id") product_id : String) : DeleteOrderResponse
 }
